@@ -8,12 +8,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+      <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-red-100">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-gray-900">Москва</div>
+            <div className="text-2xl font-bold text-secondary">Москва</div>
             <div className="hidden md:flex space-x-8">
               <button 
                 onClick={() => scrollToSection('opportunities')} 
@@ -40,36 +40,41 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Geometric Pattern Background */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/img/c24d0a6b-6665-410b-a914-40a944a03e29.jpg" 
-            alt="Moscow skyline" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/10"></div>
+          <div 
+            className="w-full h-full opacity-10"
+            style={{
+              backgroundImage: `url('https://cdn.poehali.dev/files/842fff55-0865-4779-8a81-9ca6e98df2d0.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-accent/5"></div>
         </div>
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6 animate-fade-in">
-          <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-6 leading-tight">
-            Твоя карьера<br />
-            <span className="text-primary">в Москве</span>
+          <h1 className="text-7xl md:text-9xl font-black mb-8 leading-tight">
+            <span className="text-secondary block mb-2">Твой Город</span>
+            <span className="text-primary">Твоё Дело</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
             Откройте безграничные возможности для профессионального роста в столице России
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 rounded-full bg-primary hover:bg-primary/90 transition-all duration-300"
+              className="text-lg px-12 py-8 rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 font-bold"
               onClick={() => scrollToSection('career')}
             >
               Найти работу
-              <Icon name="ArrowRight" size={20} className="ml-2" />
+              <Icon name="ArrowRight" size={24} className="ml-3" />
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="text-lg px-8 py-6 rounded-full border-2 border-gray-300 hover:border-primary transition-all duration-300"
+              className="text-lg px-12 py-8 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 font-bold"
               onClick={() => scrollToSection('opportunities')}
             >
               Узнать больше
@@ -78,24 +83,37 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Opportunities Section */}
-      <section id="opportunities" className="py-20 bg-white">
+      {/* Opportunities Section with Pattern Elements */}
+      <section id="opportunities" className="py-24 bg-white relative">
+        {/* Pattern decoration */}
+        <div className="absolute top-0 right-0 w-64 h-64 opacity-5">
+          <div 
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url('https://cdn.poehali.dev/files/842fff55-0865-4779-8a81-9ca6e98df2d0.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          ></div>
+        </div>
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">Возможности</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-20 animate-slide-up">
+            <h2 className="text-6xl font-black text-secondary mb-8">Возможности</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               Москва предлагает уникальные возможности для развития карьеры в различных сферах
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardContent className="p-8 text-center">
-                <div className="mb-6">
-                  <Icon name="Building2" size={48} className="mx-auto text-primary" />
+                <div className="mb-8">
+                  <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                    <Icon name="Building2" size={32} className="text-primary" />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Финансы</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-secondary mb-4">Финансы</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
                   Ведущие банки, инвестиционные фонды и финтех компании
                 </p>
               </CardContent>
@@ -126,23 +144,25 @@ const Index = () => {
             </Card>
           </div>
 
-          {/* Stats */}
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">12.5М</div>
-              <div className="text-gray-600">Населения</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">2000+</div>
-              <div className="text-gray-600">IT компаний</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">150+</div>
-              <div className="text-gray-600">Банков</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary mb-2">№1</div>
-              <div className="text-gray-600">По зарплатам</div>
+          {/* Stats with red accent background */}
+          <div className="bg-gradient-to-r from-primary to-accent rounded-3xl p-12 text-white">
+            <div className="grid md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-5xl font-black mb-4">12.5М</div>
+                <div className="text-xl font-medium opacity-90">Населения</div>
+              </div>
+              <div>
+                <div className="text-5xl font-black mb-4">2000+</div>
+                <div className="text-xl font-medium opacity-90">IT компаний</div>
+              </div>
+              <div>
+                <div className="text-5xl font-black mb-4">150+</div>
+                <div className="text-xl font-medium opacity-90">Банков</div>
+              </div>
+              <div>
+                <div className="text-5xl font-black mb-4">№1</div>
+                <div className="text-xl font-medium opacity-90">По зарплатам</div>
+              </div>
             </div>
           </div>
         </div>
@@ -210,43 +230,55 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-5xl font-bold mb-8">Начни карьеру в Москве</h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+      {/* Contact Section with Pattern Background */}
+      <section id="contact" className="py-24 bg-secondary text-white relative overflow-hidden">
+        {/* Full pattern background */}
+        <div className="absolute inset-0 opacity-10">
+          <div 
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url('https://cdn.poehali.dev/files/842fff55-0865-4779-8a81-9ca6e98df2d0.png')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          ></div>
+        </div>
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-6xl font-black mb-10">Начни карьеру в Москве</h2>
+          <p className="text-xl mb-16 max-w-3xl mx-auto leading-relaxed opacity-90">
             Готовы сделать следующий шаг? Свяжитесь с нами и узнайте о доступных возможностях
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <div className="flex items-center space-x-3">
-              <Icon name="Mail" size={24} className="text-primary" />
-              <span className="text-lg">career@moscow.ru</span>
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center mb-16">
+            <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl">
+              <Icon name="Mail" size={28} className="text-primary" />
+              <span className="text-xl font-medium">career@moscow.ru</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <Icon name="Phone" size={24} className="text-primary" />
-              <span className="text-lg">+7 (495) 123-45-67</span>
+            <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl">
+              <Icon name="Phone" size={28} className="text-primary" />
+              <span className="text-xl font-medium">+7 (495) 123-45-67</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <Icon name="MapPin" size={24} className="text-primary" />
-              <span className="text-lg">Москва, Россия</span>
+            <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl">
+              <Icon name="MapPin" size={28} className="text-primary" />
+              <span className="text-xl font-medium">Москва, Россия</span>
             </div>
           </div>
 
           <Button 
             size="lg" 
-            className="text-lg px-8 py-6 rounded-full bg-primary hover:bg-primary/90"
+            className="text-lg px-12 py-8 rounded-full bg-primary hover:bg-primary/90 font-bold"
           >
             Отправить резюме
-            <Icon name="Send" size={20} className="ml-2" />
+            <Icon name="Send" size={24} className="ml-3" />
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-gray-800 text-gray-400 text-center">
+      <footer className="py-12 bg-white text-gray-600 text-center border-t border-red-100">
         <div className="container mx-auto px-6">
-          <p>&copy; 2024 Карьера в Москве. Все права защищены.</p>
+          <p className="text-lg font-medium">&copy; 2024 Твой Город - Твоё Дело. Все права защищены.</p>
         </div>
       </footer>
     </div>
